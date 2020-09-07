@@ -17,11 +17,10 @@ int main(){
     char game[3][3] = {' '}; // Tic-tac-toe
     char player1 = 'X';
     char player2 = 'O';
-    bool turn = true; // false for player 1's turn, true for player 2's turn. Player 1 first.
+    bool turn = false; // false for player 1's turn, true for player 2's turn. Player 1 first.
     cout << "X = Player 1" << endl << "O = Player 2" << endl;
     int count=0;
     for (int n=0; n<9; n++){
-        turn = !turn; // use the not-operator to change true to false or false to true.
         if (turn == false)
             cout << "Player 1: ";
         else
@@ -36,6 +35,7 @@ int main(){
             game[i][j] = player1;
         else
             game[i][j] = player2;
+        turn = !turn;   // use the not-operator to change true to false or false to true.
         if (isWin(game)){
             cout << "Win!" << endl;
             break; // need to terminate the problem
